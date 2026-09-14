@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Auth & Management System</title>
+    <meta name="description" content="Secure enterprise system with RSA 4096 JWT, Dynamic CORS, and Permission Management.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Well-nested Navbar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i data-lucide="shield-check"></i>
+                <span>EnterpriseSecure</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#features" class="dropbtn">Features <i data-lucide="chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#cors">Dynamic CORS</a>
+                        <a href="#auth">RSA JWT Auth</a>
+                        <a href="#perms">Permissions</a>
+                    </div>
+                </li>
+                <li><a href="#docs">Documentation</a></li>
+                <li id="auth-btn-container">
+                    <button class="btn-primary" onclick="openPopup('login-popup')">Login</button>
+                </li>
+            </ul>
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://storage.googleapis.com/dala-prod-public-storage/generated-images/8eecb0a9-369f-4b4d-b356-9f86ffbe7ff3/hero-bg-47034da4-1778996515528.webp');">
+        <div class="hero-content">
+            <h1>Advanced Flask Architecture</h1>
+            <p>RSA 4096 Security • Dynamic CORS • Tiered Permissions</p>
+            <div class="hero-btns">
+                <button class="btn-primary-lg" onclick="openPopup('register-popup')">Get Started</button>
+                <button class="btn-secondary-lg">View Demo</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="features" class="features">
+            <div class="section-title">
+                <h2>System Core Features</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="https://storage.googleapis.com/dala-prod-public-storage/generated-images/8eecb0a9-369f-4b4d-b356-9f86ffbe7ff3/auth-bg-f646fd34-1778996516382.webp" alt="RSA Security">
+                    <h3>RSA 4096 JWT</h3>
+                    <p>Asymmetric encryption for secure API authentication with long-life tokens and automated rotation support.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="https://storage.googleapis.com/dala-prod-public-storage/generated-images/8eecb0a9-369f-4b4d-b356-9f86ffbe7ff3/cors-feature-b0a13fb1-1778996517768.webp" alt="CORS Management">
+                    <h3>Dynamic CORS</h3>
+                    <p>Superadmins can manage allowed domains in real-time without redeploying the backend services.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="https://storage.googleapis.com/dala-prod-public-storage/generated-images/8eecb0a9-369f-4b4d-b356-9f86ffbe7ff3/sub-feature-43b0f5d9-1778996516130.webp" alt="Subscriptions">
+                    <h3>Tiered Permissions</h3>
+                    <p>Flexible permission system tied to subscription tiers. Arbitrarily editable roles for maximum scalability.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Nested Popups System -->
+    <div id="popup-overlay" class="popup-overlay"></div>
+
+    <div id="login-popup" class="popup">
+        <div class="popup-header">
+            <h3>Login to Account</h3>
+            <span class="close-popup" onclick="closePopup('login-popup')">&times;</span>
+        </div>
+        <div class="popup-body">
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-block">Sign In</button>
+            </form>
+            <p class="popup-footer">Don't have an account? <a href="javascript:void(0)" onclick="openNestedPopup('register-popup', 'login-popup')">Register here</a></p>
+        </div>
+    </div>
+
+    <div id="register-popup" class="popup">
+        <div class="popup-header">
+            <h3>Create Account</h3>
+            <span class="close-popup" onclick="closePopup('register-popup')">&times;</span>
+        </div>
+        <div class="popup-body">
+            <form id="register-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="john@example.com">
+                </div>
+                <button type="submit" class="btn-block">Sign Up</button>
+            </form>
+            <p class="popup-footer">Already have an account? <a href="javascript:void(0)" onclick="openNestedPopup('login-popup', 'register-popup')">Login here</a></p>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
